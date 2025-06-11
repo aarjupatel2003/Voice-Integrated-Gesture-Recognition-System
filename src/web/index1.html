@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proton - AI Assistant</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- FontAwesome for chat icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Eel (for Python integration) -->
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-wrapper">
+            <p class="awesome">PROTON Welcomes You!</p>
+            <div class="logo">
+                <img src="images/icon.png" width="35" height="33" alt="Proton Logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- ChatBot -->
+    <div class="chat_icon">
+        <i class="fa fa-comments"></i>
+    </div>
+
+    <div class="chat_box">
+        <div class="conv-form-wrapper" style="height:auto;">
+            <div id="messages" style="overflow-y:auto; height:400px;"></div>
+        </div>
+
+        <div id="convForm" class="convFormDynamic" style="height:50px; position:absolute; left:10px; bottom:0px; margin:5px;">
+            <div class="options dragscroll"></div>
+            <input type="text" id="userInput" placeholder="Type Here..." class="userInputDynamic" style="margin:7px 7.5px 7px 10px; width:219px; height:24px;">
+            <button id="userInputButton" type="button" class="submit" style="margin-top:9px;">▶</button>
+            <span class="clear"></span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script>
+        // Toggle chatbox visibility
+        document.querySelector(".chat_icon").addEventListener("click", function () {
+            document.querySelector(".chat_box").classList.toggle("active");
+        });
+
+        // Send user input to Python backend via Eel
+        document.getElementById("userInputButton").addEventListener("click", function () {
+            let userMessage = document.getElementById("userInput").value.trim();
+            if (userMessage) {
+                eel.addUserMsg(userMessage);
+                document.getElementById("userInput").value = "";
+            }
+        });
+
+        // Capture enter key press
+        document.getElementById("userInput").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                document.getElementById("userInputButton").click();
+            }
+        });
+    </script>
+
+</body>
+</html>
