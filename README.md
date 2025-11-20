@@ -46,9 +46,10 @@ Voice-Integrated-Gesture-Recognition-System/
 │   ├── gesture_control.py      # Hand gesture detection + cursor control
 │   ├── voice_assistant.py      # Voice command processing
 │   └── main.py                 # Combined multimodal interaction pipeline
-├── models/                     # ML models 
-├── data/                       # Training data 
+├── models/                     # ML models
+├── data/                       # Training data
 └── README.md
+
 
 
 ---
