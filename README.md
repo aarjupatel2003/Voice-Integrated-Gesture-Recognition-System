@@ -42,15 +42,13 @@ The goal is to build an intuitive system that naturally responds to human moveme
 ##  Project Structure
 
 Voice-Integrated-Gesture-Recognition-System/
-├── src/
-│   ├── gesture_control.py      # Hand gesture detection + cursor control
-│   ├── voice_assistant.py      # Voice command processing
-│   └── main.py                 # Combined multimodal interaction pipeline
-├── models/                     # ML models
-├── data/                       # Training data
-└── README.md
-
-
+|-- src/
+|   |-- gesture_control.py      (Hand gesture detection + cursor control)
+|   |-- voice_assistant.py      (Voice command processing)
+|   `-- main.py                 (Combined multimodal interaction pipeline)
+|-- models/                     (ML models)
+|-- data/                       (Training data)
+`-- README.md
 
 
 ---
